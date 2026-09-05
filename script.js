@@ -168,3 +168,4 @@ document.getElementById("newOrderBtn").onclick = () => {
   document.getElementById("destination").value = "";
   showPanel("servicePanel",1);
 };
+const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY";
