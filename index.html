@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoRide - Mockup Ojek Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">🚀</span> GoRide</div>
+      <button class="menu" aria-label="Menu">☰</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Halo! 👋</p>
+        <h1>Mau pergi ke mana?</h1>
+        <p class="muted">Pesan perjalanan dengan cepat dan mudah.</p>
+      </section>
+
+      <div class="progress">
+        <div class="step active"><span>1</span><small>Layanan</small></div>
+        <div class="line"></div>
+        <div class="step"><span>2</span><small>Lokasi</small></div>
+        <div class="line"></div>
+        <div class="step"><span>3</span><small>Perjalanan</small></div>
+        <div class="line"></div>
+        <div class="step"><span>4</span><small>Konfirmasi</small></div>
+      </div>
+
+      <section class="panel" id="servicePanel">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Pilih layanan</p>
+            <h2>Layanan untukmu</h2>
+          </div>
+        </div>
+
+        <div class="services">
+          <button class="service selected" data-service="Ojek" data-base="10000">
+            <span class="service-icon">🛵</span>
+            <strong>Ojek</strong>
+            <small>Cepat & praktis</small>
+          </button>
+          <button class="service" data-service="Mobil" data-base="18000">
+            <span class="service-icon">🚗</span>
+            <strong>Mobil</strong>
+            <small>Nyaman untuk perjalanan</small>
+          </button>
+          <button class="service" data-service="Kirim Barang" data-base="12000">
+            <span class="service-icon">📦</span>
+            <strong>Kirim Barang</strong>
+            <small>Antar paket dengan aman</small>
+          </button>
+          <button class="service" data-service="Makanan" data-base="10000">
+            <span class="service-icon">🍔</span>
+            <strong>Makanan</strong>
+            <small>Pesan makanan favorit</small>
+          </button>
+        </div>
+
+        <button class="primary" id="startBtn">Lanjutkan <span>→</span></button>
+      </section>
+
+      <section class="panel hidden" id="locationPanel">
+        <div class="back" data-back="servicePanel">← Kembali</div>
+        <p class="eyebrow">Lokasi perjalanan</p>
+        <h2>Tentukan lokasi</h2>
+
+        <label>📍 Lokasi penjemputan</label>
+        <div class="input-wrap">
+          <input id="pickup" value="Universitas Teuku Umar" placeholder="Masukkan lokasi penjemputan">
+          <button class="clear" data-clear="pickup">×</button>
+        </div>
+
+        <label>🎯 Tujuan</label>
+        <div class="input-wrap">
+          <input id="destination" placeholder="Masukkan tujuan">
+          <button class="clear" data-clear="destination">×</button>
+        </div>
+
+        <div class="location-note">💡 Contoh: Meulaboh Mall, Kantor Bupati, atau alamat lainnya.</div>
+        <button class="primary" id="routeBtn">Lihat Perjalanan <span>→</span></button>
+      </section>
+
+      <section class="panel hidden" id="tripPanel">
+        <div class="back" data-back="locationPanel">← Ubah lokasi</div>
+        <p class="eyebrow">Informasi perjalanan</p>
+        <h2>Perjalananmu</h2>
+
+        <div class="route-card">
+          <div class="route-row"><span class="dot green"></span><div><small>Penjemputan</small><strong id="pickupText"></strong></div></div>
+          <div class="route-line"></div>
+          <div class="route-row"><span class="dot red"></span><div><small>Tujuan</small><strong id="destinationText"></strong></div></div>
+        </div>
+
+        <div class="trip-info">
+          <div><span>Jarak</span><strong id="distance">4,2 km</strong></div>
+          <div><span>Estimasi</span><strong id="duration">12 menit</strong></div>
+          <div><span>Tarif</span><strong id="fare">Rp15.000</strong></div>
+        </div>
+
+        <div class="payment">
+          <div><span>💵</span><div><small>Metode pembayaran</small><strong>Tunai</strong></div><span>›</span></div>
+        </div>
+
+        <button class="primary" id="confirmBtn">Konfirmasi Pesanan <span>✓</span></button>
+      </section>
+
+      <section class="panel success hidden" id="confirmPanel">
+        <div class="success-icon">✓</div>
+        <p class="eyebrow">Pesanan berhasil</p>
+        <h2>Driver sedang dicari!</h2>
+        <p class="muted">Pesanan <strong id="confirmedService"></strong> kamu sudah diterima.</p>
+
+        <div class="success-card">
+          <div><span>Penjemputan</span><strong id="confirmedPickup"></strong></div>
+          <div><span>Tujuan</span><strong id="confirmedDestination"></strong></div>
+          <div><span>Total</span><strong id="confirmedFare"></strong></div>
+        </div>
+
+        <div class="driver-status">
+          <span class="pulse"></span>
+          Mencari driver terdekat...
+        </div>
+
+        <button class="secondary" id="newOrderBtn">Buat Pesanan Baru</button>
+      </section>
+    </main>
+
+    <footer>GoRide Mockup • Sederhana, cepat, mudah dipahami</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
