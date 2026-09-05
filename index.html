@@ -82,6 +82,41 @@
 <p class="location-status" id="locationStatus">
   Lokasi GPS belum digunakan
 </p>
+        
+<label>🎯 Tujuan</label>
+
+<div class="destination-search">
+  <div class="input-wrap">
+    <span class="search-icon">🔍</span>
+
+    <input
+      id="destination"
+      type="text"
+      placeholder="Cari tempat atau alamat"
+      autocomplete="off"
+    >
+
+    <button
+      class="clear"
+      id="clearDestination"
+      type="button"
+      aria-label="Hapus tujuan"
+    >
+      ×
+    </button>
+  </div>
+
+  <!-- Daftar hasil pencarian Google Maps -->
+  <div
+    id="destinationResults"
+    class="destination-results"
+  ></div>
+</div>
+
+<div class="location-note">
+  💡 Ketik nama tempat, alamat, atau lokasi tujuan kemudian pilih salah satu hasil.
+</div>
+
 
         <label>🎯 Tujuan</label>
         <div class="input-wrap">
