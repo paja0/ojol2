@@ -67,6 +67,103 @@ document.getElementById("confirmBtn").onclick = () => {
   showPanel("confirmPanel",4);
 };
 
+const locationBtn = document.getElementById("locationBtn");
+const locationStatus = document.getElementById("locationStatus");
+const pickupInput = document.getElementById("pickup");
+
+locationBtn.addEventListener("click", () => {
+
+  if (!navigator.geolocation) {
+    locationStatus.textContent =
+      "Browser Anda tidak mendukung GPS.";
+    return;
+  }
+
+  locationStatus.textContent =
+    "📡 Sedang mengambil lokasi GPS...";
+
+  locationBtn.disabled = true;
+
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      console.log("Latitude:", latitude);
+      console.log("Longitude:", longitude);
+
+      locationStatus.textContent =
+        "✓ Lokasi GPS berhasil ditemukan";
+
+      locationBtn.textContent =
+        "✓ Lokasi Saya Digunakan";
+
+      // Mengubah koordinat GPS menjadi nama lokasi
+      try {
+
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+        );
+
+        const data = await response.json();
+
+        if (data.display_name) {
+          pickupInput.value = data.display_name;
+        } else {
+          pickupInput.value =
+            `${latitude}, ${longitude}`;
+        }
+
+      } catch (error) {
+
+        console.error(error);
+
+        pickupInput.value =
+          `${latitude}, ${longitude}`;
+
+        locationStatus.textContent =
+          "✓ GPS ditemukan, tetapi nama lokasi tidak tersedia.";
+      }
+
+      locationBtn.disabled = false;
+    },
+
+    (error) => {
+
+      locationBtn.disabled = false;
+
+      switch (error.code) {
+
+        case error.PERMISSION_DENIED:
+          locationStatus.textContent =
+            "❌ Akses lokasi ditolak. Silakan izinkan GPS.";
+          break;
+
+        case error.POSITION_UNAVAILABLE:
+          locationStatus.textContent =
+            "❌ Lokasi tidak tersedia.";
+          break;
+
+        case error.TIMEOUT:
+          locationStatus.textContent =
+            "❌ Waktu pengambilan lokasi habis.";
+          break;
+
+        default:
+          locationStatus.textContent =
+            "❌ Terjadi kesalahan saat mengambil lokasi.";
+      }
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 15000,
+      maximumAge: 0
+    }
+  );
+});
+
 document.getElementById("newOrderBtn").onclick = () => {
   document.getElementById("destination").value = "";
   showPanel("servicePanel",1);
