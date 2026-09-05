@@ -70,10 +70,18 @@
         <h2>Tentukan lokasi</h2>
 
         <label>📍 Lokasi penjemputan</label>
-        <div class="input-wrap">
-          <input id="pickup" value="Universitas Teuku Umar" placeholder="Masukkan lokasi penjemputan">
-          <button class="clear" data-clear="pickup">×</button>
-        </div>
+
+<div class="input-wrap">
+  <input id="pickup" placeholder="Mendeteksi lokasi..." readonly>
+</div>
+
+<button class="location-btn" id="locationBtn">
+  📍 Gunakan Lokasi Saya
+</button>
+
+<p class="location-status" id="locationStatus">
+  Lokasi GPS belum digunakan
+</p>
 
         <label>🎯 Tujuan</label>
         <div class="input-wrap">
