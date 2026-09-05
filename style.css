@@ -7,11 +7,11 @@ button{cursor:pointer}
 .app{max-width:720px;margin:auto;min-height:100vh;background:#fff;box-shadow:0 0 35px rgba(0,0,0,.06)}
 .topbar{height:68px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:5}
 
-//Emot
+<!-- Emot -->
 .brand{font-weight:800;font-size:21px;color:var(--primary)}
 .brand-icon{font-size:20px;margin-right:7px}.menu{border:0;background:#f1f5f2;border-radius:12px;width:40px;height:40px;font-size:20px}
 
-//Konten utama
+<!-- Konten utama -->
 main{padding:30px 28px 20px}.hero{margin-bottom:24px}.eyebrow{color:var(--primary);font-size:13px;font-weight:750;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
 h1{font-size:31px;line-height:1.15;margin-bottom:7px}h2{font-size:22px;margin-bottom:18px}.muted{color:var(--muted);line-height:1.5}
 .progress{display:flex;align-items:center;margin:12px 0 25px}.step{display:flex;flex-direction:column;align-items:center;gap:5px;color:#9aa69f;min-width:54px}.step span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#edf1ef;font-size:13px;font-weight:700}.step small{font-size:10px}.step.active{color:var(--primary)}.step.active span{background:var(--primary);color:#fff}.line{height:2px;background:#e5ebe7;flex:1;margin:0 4px}
