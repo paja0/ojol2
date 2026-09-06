@@ -93,20 +93,28 @@
       placeholder="Cari tempat atau alamat"
       autocomplete="off"
     >
-  </div>
 
-  <!-- Daftar hasil pencarian Google Maps -->
-  <div
-    id="destinationResults"
-    class="destination-results"
-  ></div>
+    <button
+      class="clear"
+      id="clearDestination"
+      type="button"
+      aria-label="Hapus tujuan"
+    >
+      ×
+    </button>
+  </div>
 </div>
 
 <div class="location-note">
-  💡 Ketik nama tempat, alamat, atau lokasi tujuan kemudian pilih salah satu hasil.
+  💡 Ketik nama tempat, alamat, atau lokasi tujuan kemudian pilih salah satu hasil Google Maps.
 </div>
-        <button class="primary" id="routeBtn">Lihat Perjalanan <span>→</span></button>
-      </section>
+
+<!-- Google Maps -->
+<div id="map" class="map"></div>
+
+<button class="primary" id="routeBtn">
+  Lihat Perjalanan <span>→</span>
+</button>
 
       <section class="panel hidden" id="tripPanel">
         <div class="back" data-back="locationPanel">← Ubah lokasi</div>
